@@ -9,12 +9,14 @@ import java.sql.*;
 
 public class Login {
 
-    private String username, pw;
+    String username, pw;
     Connection con;
     private PreparedStatement getAdmin;
 
     @FXML
     TextField unInput;
+
+    @FXML
     PasswordField pwInput;
 
 
@@ -23,9 +25,6 @@ public class Login {
 
         username = unInput.getText();
         pw = pwInput.getText();
-
-        con = ConDB.getConnection();
-        con.setAutoCommit(false);
 
 
         if(validateUser(username, pw).next()) {
@@ -54,11 +53,16 @@ public class Login {
     //Validates admin and password
     public ResultSet validateUser (String username, String pw) throws SQLException {
 
+        con = ConDB.getConnection();
+        con.setAutoCommit(false);
+
         //Fix this later with connection to DB-tables
-        getAdmin = con.prepareStatement("SELECT * FROM (Insert Tabell-navn) WHERE username = ? AND password = ?");
+        getAdmin = con.prepareStatement("SELECT * FROM public.\"Admins\" WHERE \"LastName\" = ? AND \"Password\" = ?");
         getAdmin.setString(1, username);
         getAdmin.setString(2, pw);
+        System.out.println("Query Executed");
         return getAdmin.executeQuery();
+
 
     }
 
