@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Login"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <VBox id="inputAlignment">
+        <TextField fx:id="userNameInput"
+                   promptText="Enter UserName"
+                   focusTraversable="false"/>
+    </VBox>
+
+    <VBox id="inputAlignment">
+        <PasswordField fx:id="passwordField"
+                       promptText="Password"
+                       focusTraversable="false"/>
+    </VBox>
+
+    <VBox id="spacing">
+    </VBox>
+
+    <VBox id="buttonAlignment">
+        <Button id="loginButton" text="Login" onMouseClicked="#loginButtonClicked"/>
+        <Button id="exitButton" text="Close" onMouseClicked="#closeButtonClicked"/>
+    </VBox>
+
+
+</VBox>

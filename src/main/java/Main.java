@@ -1,12 +1,36 @@
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.awt.*;
+import java.io.IOException;
+import java.sql.*;
 
 public class Main extends Application {
 
-    @Override
-    public void start(Stage stage) throws Exception {
+    public static void main(String[] args) {
 
-        ConDB.getConnection();
+        launch(args);
 
     }
+
+
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+
+        FXMLLoader loader = SceneSwitch.getLoader(SceneSwitch.loginFXML);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+
+        primaryStage.setTitle(SceneSwitch.loginTitle);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        primaryStage.toFront();
+
+
+
+    }
+
 }
