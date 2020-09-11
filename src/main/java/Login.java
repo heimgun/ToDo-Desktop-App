@@ -1,3 +1,7 @@
+import javafx.application.Platform;
+import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -7,24 +11,55 @@ public class Login {
 
     private String username, pw;
     Connection con;
+    private PreparedStatement getAdmin;
+
+    @FXML
+    TextField unInput;
+    PasswordField pwInput;
 
 
 
+    public void loginButtonClicked (MouseEvent mouseEvent) throws IOException, SQLException {
+
+        username = unInput.getText();
+        pw = pwInput.getText();
+
+        con = ConDB.getConnection();
+        con.setAutoCommit(false);
+
+
+        if(validateUser(username, pw).next()) {
+
+            System.out.println("Logging into Main Menu");
+            SceneSwitch.replaceScene(SceneSwitch.mainMenuFXML, SceneSwitch.mainMenuTitle, mouseEvent);
+
+        } else {
+
+            System.out.println("Unable to login");
+
+        }
 
 
 
-
-
-    public void loginButtonClicked (MouseEvent mouseEvent) throws IOException {
-
-        System.out.println("Logging into Main Menu");
-        SceneSwitch.replaceScene(SceneSwitch.mainMenuFXML, SceneSwitch.mainMenuTitle, mouseEvent);
     }
 
-    public void closeButtonClicked (MouseEvent mouseEvent) throws IOException {
+    //Closing program
+    public void closeButtonClicked (){
 
         System.out.println("Exiting Program");
         System.exit(0);
+        Platform.exit();
+    }
+
+    //Validates admin and password
+    public ResultSet validateUser (String username, String pw) throws SQLException {
+
+        //Fix this later with connection to DB-tables
+        getAdmin = con.prepareStatement("SELECT * FROM (Insert Tabell-navn) WHERE username = ? AND password = ?");
+        getAdmin.setString(1, username);
+        getAdmin.setString(2, pw);
+        return getAdmin.executeQuery();
+
     }
 
 

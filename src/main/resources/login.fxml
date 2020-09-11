@@ -10,13 +10,13 @@
             prefHeight="400.0" prefWidth="600.0">
 
     <VBox id="inputAlignment">
-        <TextField fx:id="userNameInput"
+        <TextField fx:id="unInput"
                    promptText="Enter UserName"
                    focusTraversable="false"/>
     </VBox>
 
     <VBox id="inputAlignment">
-        <PasswordField fx:id="passwordField"
+        <PasswordField fx:id="pwInput"
                        promptText="Password"
                        focusTraversable="false"/>
     </VBox>
