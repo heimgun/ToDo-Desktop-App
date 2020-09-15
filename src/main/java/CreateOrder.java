@@ -1,21 +1,23 @@
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleListProperty;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class CreateOrder {
 
-    //Fill Observable lists later
+    //Fill Observable lists with Customer and Operator-Array-lists from DB/API
     ObservableList<String> customerList = FXCollections.observableArrayList();
     ObservableList<String> operatorList = FXCollections.observableArrayList();
 
 
+
+
+
+
+    //Some runnable method that updates the lists
 
 
 

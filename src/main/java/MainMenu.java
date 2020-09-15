@@ -21,4 +21,11 @@ public class MainMenu {
 
     }
 
+    public void logOutButtonClicked (MouseEvent mouseEvent) throws IOException {
+
+        System.out.println("Logging out");
+        SceneSwitch.replaceScene(SceneSwitch.loginFXML, SceneSwitch.loginTitle, mouseEvent);
+
+    }
+
 }
