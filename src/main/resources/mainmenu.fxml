@@ -11,8 +11,14 @@
 
     <VBox id="buttonAlignment">
         <Button id="placeOrderButton" text="Place Order" onMouseClicked="#placeOrderClicked"/>
+        <VBox id="spacing">
+        </VBox>
         <Button id="registerEmployeeButton" text="Register Employee" onMouseClicked="#registerEmployeeClicked"/>
+        <VBox id="spacing">
+        </VBox>
         <Button id="registerCustomerButton" text="Register Customer" onMouseClicked="#registerCustomerClicked"/>
+        <VBox id="spacing">
+        </VBox>
         <Button id="logOutButton" text="Log out" onMouseClicked="#logOutButtonClicked"/>
     </VBox>
 

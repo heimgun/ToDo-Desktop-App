@@ -12,12 +12,14 @@
 
     <VBox id="inputAlignment">
         <TextField fx:id="unInput"
+                   maxWidth="200"
                    promptText="Enter UserName"
                    focusTraversable="false"/>
     </VBox>
 
     <VBox id="inputAlignment">
         <PasswordField fx:id="pwInput"
+                       maxWidth="200"
                        promptText="Password"
                        focusTraversable="false"/>
     </VBox>
@@ -27,6 +29,8 @@
 
     <VBox id="buttonAlignment">
         <Button id="loginButton" text="Login" onMouseClicked="#loginButtonClicked"/>
+        <VBox id="spacing">
+        </VBox>
         <Button id="exitButton" text="Close" onMouseClicked="#closeButtonClicked"/>
     </VBox>
 
