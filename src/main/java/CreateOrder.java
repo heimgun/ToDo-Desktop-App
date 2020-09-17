@@ -21,7 +21,7 @@ public class CreateOrder {
 
 
 
-    //Should run before opening scene (maybe upon clicking “Create Order”-button)
+    //Should run before opening scene (maybe upon clicking “Create Order"-button)
     public void myVoid() throws SQLException {
 
 
