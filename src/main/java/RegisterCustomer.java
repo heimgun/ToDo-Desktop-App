@@ -13,7 +13,7 @@ public class RegisterCustomer {
 
 
     @FXML
-    TextField customerName, customerAdress, customerEmail,customerPhone ;
+    TextField customerName, customerAdress, customerEmail, customerPhone;
 
 
     private PreparedStatement createCustomer;
@@ -42,13 +42,16 @@ public class RegisterCustomer {
             createCustomer.close();
 
 
-
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
 
         }
-
-
     }
 
+    public void goBackButton(MouseEvent mouseEvent) throws IOException {
+
+        System.out.println("Going back to Main Menu");
+        SceneSwitch.replaceScene(SceneSwitch.mainMenuFXML, SceneSwitch.mainMenuTitle, mouseEvent);
+
+    }
 }

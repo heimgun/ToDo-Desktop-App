@@ -14,6 +14,6 @@
       <TextField fx:id="customerEmail" layoutX="110.0" layoutY="155.0" />
       <TextField fx:id="customerPhone" layoutX="110.0" layoutY="202.0" />
       <Button fx:id="addCustomerButton" layoutX="67.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#addCustomer" text="Add" />
-      <Button fx:id="customerBackButton" layoutX="220.0" layoutY="283.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="customerBackButton" layoutX="220.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#goBackButton" text="Back" />
    </children>
 </AnchorPane>
