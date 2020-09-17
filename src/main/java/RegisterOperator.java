@@ -13,25 +13,35 @@ public class RegisterOperator {
   TextField operatorLastName;
   @FXML
   TextField operatorPassword;
+  @FXML
+  TextField operatorUsername;
 
   private PreparedStatement createOperator;
     Connection con;
 
-    public void addOperator(MouseEvent mouseEvent) {
+    public void addOperator(MouseEvent mouseEvent) throws SQLException {
+        con = ConDB.getConnection();
+        con.setAutoCommit(false);
+
+
         String oName = operatorName.getText();
         String oLastName = operatorLastName.getText();
         String oPassword = operatorPassword.getText();
+        String oUsername = operatorUsername.getText();
 
         try {
             createOperator = con.prepareStatement("INSERT INTO public.\"Operator\"\n" +
-                    "\"FirstName\", \"LastName\", \"OperatorPassword\")\n" +
-                    "\tVALUES (?, ?, ?);");
-           
+                    "(\"FirstName\", \"LastName\", \"OperatorPassword\", \"Username\")\n" +
+                    "VALUES(?, ?, ?, ?);");
+
 
             createOperator.setString(1, oName);
             createOperator.setString(2, oLastName);
             createOperator.setString(3, oPassword);
+            createOperator.setString(4, oUsername);
             createOperator.executeUpdate();
+            con.commit();
+            createOperator.close();
         }catch (SQLException E) {
 
         }
