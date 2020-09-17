@@ -30,14 +30,18 @@ public class MainMenu {
               populateOperatorList(operatorRS);
           }
 
+
+
           System.out.println("Going to Create Order");
           SceneSwitch.replaceScene(SceneSwitch.createOrderFXML, SceneSwitch.createOrderTitle, mouseEvent);
 
-      }
+     }
 
       else {
           System.out.println("No available info");
       }
+
+
 
     }
 
@@ -63,7 +67,7 @@ public class MainMenu {
     public void populateCustomerList(ResultSet resultSet) throws SQLException {
 
         Customer customer = new Customer();
-        customer.setName(resultSet.getString("Name"));
+        customer.setName(resultSet.getString("FirstName"));
         customer.setCustomerID(resultSet.getInt("CustomerID"));
         Customer.customers.add(customer);
         System.out.println(customer.getCustomerID() + " " + customer.getName() + " added to CustomerList");
