@@ -51,7 +51,10 @@ public class MainMenu {
         SceneSwitch.replaceScene(SceneSwitch.registerOperatorFXML, SceneSwitch.registerOperatorTitle, mouseEvent);
     }
 
-    public void registerCustomerClicked (MouseEvent mouseEvent){
+    public void registerCustomerClicked (MouseEvent mouseEvent) throws IOException {
+
+        System.out.println("Going to Create Customer");
+        SceneSwitch.replaceScene(SceneSwitch.registerCustomerFXML, SceneSwitch.registerCustomerTitle, mouseEvent);
 
     }
 

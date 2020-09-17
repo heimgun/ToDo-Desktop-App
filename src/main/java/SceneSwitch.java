@@ -15,12 +15,18 @@ public class SceneSwitch {
     public static final String mainMenuTitle = "Main Menu";
     public static final String createOrderTitle = "Create Order";
     public static final String registerOperatorTitle = "Register Operator";
+    public static final String registerCustomerTitle = "Register Customer";
+
+
 
     //Fxml
     public static final String loginFXML = "login.fxml";
     public static final String mainMenuFXML = "mainmenu.fxml";
     public static final String createOrderFXML = "createorder.fxml";
-    public static final String registerOperatorFXML = "registerOperator.fxml";
+    public static final String registerOperatorFXML = "registeroperator.fxml";
+    public static final String registerCustomerFXML = "registercustomer.fxml";
+
+
 
 
     public static URL getRes(String fileName) {
