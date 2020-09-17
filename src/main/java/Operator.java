@@ -1,16 +1,20 @@
-public class Employee {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Operator {
 
     int operatorID;
-    String operatorName;
     String operatorLastName;
-    //More objects here?
+    static List<Operator> operators;
 
 
     public int getOperatorID() { return operatorID; }
-    public String getOperatorName() { return operatorName; }
     public String getOperatorLastName() { return operatorLastName; }
 
+    public List<Operator> getOperators() {
+        return operators;
+    }
+
     public void setOperatorID(int operatorID) { this.operatorID = operatorID; }
-    public void setOperatorName(String operatorName) { this.operatorName = operatorName; }
     public void setOperatorLastName(String operatorLastName) { this.operatorLastName = operatorLastName; }
 }

@@ -13,7 +13,7 @@
         <Button id="placeOrderButton" text="Place Order" onMouseClicked="#placeOrderClicked"/>
         <VBox id="spacing">
         </VBox>
-        <Button id="registerEmployeeButton" text="Register Employee" onMouseClicked="#registerEmployeeClicked"/>
+        <Button id="registerEmployeeButton" text="Register Operator" onMouseClicked="#registerEmployeeClicked"/>
         <VBox id="spacing">
         </VBox>
         <Button id="registerCustomerButton" text="Register Customer" onMouseClicked="#registerCustomerClicked"/>
