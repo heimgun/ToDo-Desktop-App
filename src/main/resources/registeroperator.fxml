@@ -10,8 +10,10 @@
       <Label layoutX="35.0" layoutY="103.0" text="LastName" />
       <Label layoutX="35.0" layoutY="143.0" text="Password" />
       <TextField fx:id="operatorLastName" layoutX="99.0" layoutY="99.0" />
-      <Button layoutX="66.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#addOperator" text="Add" />
-      <Button layoutX="200.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#goBackButtonClicked" text="Go back" />
+      <Button layoutX="62.0" layoutY="247.0" mnemonicParsing="false" onMouseClicked="#addOperator" text="Add" />
+      <Button layoutX="203.0" layoutY="247.0" mnemonicParsing="false" onMouseClicked="#goBackButtonClicked" text="Go back" />
       <TextField fx:id="operatorPassword" layoutX="99.0" layoutY="139.0" />
+      <TextField fx:id="operatorUsername" layoutX="99.0" layoutY="186.0" />
+      <Label layoutX="36.0" layoutY="191.0" text="Username" />
    </children>
 </Pane>

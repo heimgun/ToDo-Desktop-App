@@ -13,6 +13,8 @@ public class RegisterOperator {
   TextField operatorLastName;
   @FXML
   TextField operatorPassword;
+  @FXML
+  TextField operatorUsername;
 
   private PreparedStatement createOperator;
     Connection con;
@@ -21,16 +23,18 @@ public class RegisterOperator {
         String oName = operatorName.getText();
         String oLastName = operatorLastName.getText();
         String oPassword = operatorPassword.getText();
+        String oUsername = operatorUsername.getText();
 
         try {
             createOperator = con.prepareStatement("INSERT INTO public.\"Operator\"\n" +
-                    "\"OperatorName\", \"LastName\", \"OperatorPassword\")\n" +
-                    "\tVALUES (?, ?, ?);");
+                    "\"FirstName\", \"LastName\", \"OperatorPassword\", \"Username\")\n" +
+                    "\tVALUES (?, ?, ?, ?);");
            
 
             createOperator.setString(1, oName);
             createOperator.setString(2, oLastName);
             createOperator.setString(3, oPassword);
+            createOperator.setString(4, oUsername);
             createOperator.executeUpdate();
         }catch (SQLException E) {
 
