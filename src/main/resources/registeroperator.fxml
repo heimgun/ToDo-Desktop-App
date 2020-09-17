@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="add" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterOperator">
+   <children>
+      <Label layoutX="33.0" layoutY="62.0" text="Name" />
+      <TextField fx:id="operatorName" layoutX="99.0" layoutY="58.0" />
+      <Label layoutX="35.0" layoutY="103.0" text="LastName" />
+      <Label layoutX="35.0" layoutY="143.0" text="Password" />
+      <TextField fx:id="operatorLastName" layoutX="99.0" layoutY="99.0" />
+      <Button layoutX="66.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#addOperator" text="Add" />
+      <Button layoutX="200.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#goBackButtonClicked" text="Go back" />
+      <TextField fx:id="operatorPassword" layoutX="99.0" layoutY="139.0" />
+   </children>
+</Pane>

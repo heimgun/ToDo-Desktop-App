@@ -57,10 +57,13 @@ public class Login {
         con.setAutoCommit(false);
 
         //Fix this later with connection to DB-tables
-        getAdmin = con.prepareStatement("SELECT * FROM public.\"Admins\" WHERE \"LastName\" = ? AND \"Password\" = ?");
+        getAdmin = con.prepareStatement("SELECT * FROM public.\"Admins\" WHERE \"LastName\" = ? AND \"AdminPassword\" = ?");
         getAdmin.setString(1, username);
         getAdmin.setString(2, pw);
         System.out.println("Query Executed");
+        ResultSet rs = getAdmin.executeQuery();
+        if( rs.next())
+        System.out.println("Ok");
         return getAdmin.executeQuery();
 
 

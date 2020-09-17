@@ -13,8 +13,10 @@ public class MainMenu {
 
     }
 
-    public void registerEmployeeClicked (MouseEvent mouseEvent){
+    public void registerEmployeeClicked (MouseEvent mouseEvent) throws IOException{
 
+        System.out.println("Going to Create Operator");
+        SceneSwitch.replaceScene(SceneSwitch.registerOperatorFXML, SceneSwitch.registerOperatorTitle, mouseEvent);
     }
 
     public void registerCustomerClicked (MouseEvent mouseEvent){
