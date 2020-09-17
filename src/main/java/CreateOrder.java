@@ -1,9 +1,12 @@
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 import java.util.*;
 
@@ -12,72 +15,43 @@ public class CreateOrder {
 
 
     Connection con;
-    PreparedStatement getCustomers, getOperator;
-
-    //Fill Observable lists with Customer and Operator-Array-lists from DB/API
-    ObservableList<String> customerList = FXCollections.observableArrayList();
-    ObservableList<String> operatorList = FXCollections.observableArrayList();
+    PreparedStatement submitOrder;
 
 
 
+    @FXML
+    ComboBox<Customer> customerList;
 
-    //Should run before opening scene (maybe upon clicking “Create Order”-button)
-    public void myVoid() throws SQLException {
+    @FXML
+    ComboBox<Operator> operatorList;
 
-
-        while(getCustomers().next() && getOperators().next()){
-
-
-            Customer customer = new Customer();
-            customer.setName(getCustomers().getString("Name"));
-            customer.setCustomerID(getCustomers().getInt("CustomerID"));
-            Customer.customers.add(customer);
+    ObservableList<Customer> customers = FXCollections.observableArrayList(Customer.customers);
+    ObservableList<Operator> operator = FXCollections.observableArrayList(Operator.operators);
 
 
-            Operator operator = new Operator();
-            operator.setOperatorID(getOperators().getInt("OperatorID"));
-            operator.setOperatorLastName(getOperators().getString("LastName"));
-            Operator.operators.add(operator);
+    @FXML
+    public void initialize() throws SQLException {
 
+        try {
 
+            customerList.setItems(customers);
+            operatorList.setItems(operator);
 
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
 
 
 
     }
 
-    public ResultSet getCustomers() throws SQLException {
-
-        con = ConDB.getConnection();
-        con.setAutoCommit(false);
-
-        getCustomers = con.prepareStatement("SELECT * FROM public.\"Customer\"");
-        System.out.println("Customers received");
-        return getCustomers.executeQuery();
-
-    }
-
-    public ResultSet getOperators() throws SQLException {
-
-        con = ConDB.getConnection();
-        con.setAutoCommit(false);
-
-        //Merge-statement with available-table
-        getOperator = con.prepareStatement("SELECT * From public.\"Operator\"");
-        System.out.println("Available Operators received");
-        return getOperator.executeQuery();
-
-
-    }
 
 
 
 
 
-
-
-   public void placeOrderButtonClicked(){
+    public void placeOrderButtonClicked(){
 
        //Send Order to DB/API --> notification to Operator
 

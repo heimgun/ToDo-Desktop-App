@@ -17,4 +17,8 @@ public class Operator {
 
     public void setOperatorID(int operatorID) { this.operatorID = operatorID; }
     public void setOperatorLastName(String operatorLastName) { this.operatorLastName = operatorLastName; }
+
+    public String toString(){
+        return "ID: " + getOperatorID() + " - " + getOperatorLastName();
+    }
 }

@@ -16,10 +16,9 @@
 
     <VBox id="orderBox">
 
-        <ComboBox value="Select Customer">
+        <ComboBox fx:id="customerList" value="Select Customer">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Test"/>
                 </FXCollections>
             </items>
         </ComboBox>
@@ -27,10 +26,9 @@
         <VBox id="spacing">
         </VBox>
 
-        <ComboBox value="Select Operator">
+        <ComboBox fx:id="operatorList" value="Select Operator">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Test"/>
                 </FXCollections>
             </items>
         </ComboBox>
