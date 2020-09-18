@@ -36,7 +36,7 @@
         <VBox id="spacing">
         </VBox>
 
-        <TextArea promptText="Description" maxWidth="250" maxHeight="150" fx:id="desctiption" />
+        <TextArea promptText="Description" maxWidth="250" maxHeight="150" fx:id="description" />
 
     </VBox>
 
