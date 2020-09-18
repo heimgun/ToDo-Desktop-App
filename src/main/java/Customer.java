@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Customer {
 
-    static int customerID;
+    int customerID;
     String name;
     static List<Customer> customers;
 

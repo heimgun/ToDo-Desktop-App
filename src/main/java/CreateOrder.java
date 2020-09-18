@@ -6,9 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.*;
-import java.util.*;
 
 
 public class CreateOrder {
@@ -30,7 +28,7 @@ public class CreateOrder {
 
 
     @FXML
-    public void initialize() throws SQLException {
+    public void initialize(){
 
         try {
 
