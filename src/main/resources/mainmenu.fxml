@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="MainMenu"
-      stylesheets="stylesheet.css"
-      prefHeight="400.0" prefWidth="600.0">
+<VBox prefHeight="400.0" prefWidth="600.0" stylesheets="stylesheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu">
 
     <VBox id="buttonAlignment">
-        <Button id="placeOrderButton" text="Place Order" onMouseClicked="#placeOrderClicked"/>
+        <Button id="placeOrderButton" onMouseClicked="#placeOrderClicked" text="Place Order" />
+      <Button mnemonicParsing="false" onMouseClicked="#taskButton" text="Task's" />
         <VBox id="spacing">
         </VBox>
-        <Button id="registerEmployeeButton" text="Register Operator" onMouseClicked="#registerEmployeeClicked"/>
+        <Button id="registerEmployeeButton" onMouseClicked="#registerEmployeeClicked" text="Register Operator" />
         <VBox id="spacing">
         </VBox>
-        <Button id="registerCustomerButton" text="Register Customer" onMouseClicked="#registerCustomerClicked"/>
+        <Button id="registerCustomerButton" onMouseClicked="#registerCustomerClicked" text="Register Customer" />
         <VBox id="spacing">
         </VBox>
-        <Button id="logOutButton" text="Log out" onMouseClicked="#logOutButtonClicked"/>
+        <Button id="logOutButton" onMouseClicked="#logOutButtonClicked" text="Log out" />
     </VBox>
 
 

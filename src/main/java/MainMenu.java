@@ -65,6 +65,11 @@ public class MainMenu {
 
     }
 
+    public void taskButton (MouseEvent mouseEvent) throws IOException {
+        System.out.println("Task overview");
+        SceneSwitch.replaceScene(SceneSwitch.taskOverviewFXML, SceneSwitch. taskOverviewTitle, mouseEvent);
+    }
+
 
 
     public void populateCustomerList(ResultSet resultSet) throws SQLException {
