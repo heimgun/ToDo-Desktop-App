@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.control.Button?>
-<?import javafx.collections.FXCollections?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.TextArea?>
 
-
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="CreateOrder"
-      stylesheets="stylesheet.css"
-      prefHeight="400.0" prefWidth="600.0">
+<VBox prefHeight="400.0" prefWidth="600.0" stylesheets="stylesheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateOrder">
 
     <VBox id="orderBox">
         <ComboBox fx:id="customerList" value="Select Customer">
@@ -33,18 +27,21 @@
         <VBox id="spacing">
         </VBox>
 
-        <TextArea promptText="Description" maxWidth="250" maxHeight="150" fx:id="description" />
+        <TextArea fx:id="description" maxHeight="150" maxWidth="250" promptText="Description" />
 
     </VBox>
 
     <VBox id="spacing">
-    </VBox>
+      <children>
+         <Label text="Start date" />
+         <DatePicker fx:id="startDate" />
+      </children></VBox>
 
     <VBox id="buttonAlignment">
-        <Button id="placeOrderButton" text="Place Order" onMouseClicked="#placeOrderButtonClicked"/>
+        <Button id="placeOrderButton" onMouseClicked="#placeOrderButtonClicked" text="Place Order" />
         <VBox id="spacing">
         </VBox>
-        <Button id="goBackButton" text="Go Back" onMouseClicked="#goBackButtonClicked"/>
+        <Button id="goBackButton" onMouseClicked="#goBackButtonClicked" text="Go Back" />
     </VBox>
 
 
