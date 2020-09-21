@@ -4,11 +4,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 
 
 public class CreateOrder {
@@ -26,6 +28,9 @@ public class CreateOrder {
 
     @FXML
     ComboBox<Operator> operatorList;
+
+    @FXML
+    DatePicker startDate;
 
     ObservableList<Customer> customers = FXCollections.observableArrayList(Customer.customers);
     ObservableList<Operator> operator = FXCollections.observableArrayList(Operator.operators);
@@ -58,15 +63,17 @@ public class CreateOrder {
         Customer customer = customerList.getSelectionModel().getSelectedItem();
         Operator operator = operatorList.getSelectionModel().getSelectedItem();
 
+
         int operatorID = operator.getOperatorID();
         int customerID = customer.getCustomerID();
+        LocalDate date = startDate.getValue();
 
         String orderDescription = description.getText();
 
 
         try{
 
-            submitOrderToDB(orderDescription, operatorID, customerID);
+            submitOrderToDB(orderDescription, operatorID, customerID, date);
             a.setAlertType(Alert.AlertType.CONFIRMATION);
             a.setTitle("Order Submitted");
             a.setContentText("Task " + orderDescription + " at " + customer.getName() + "s place\n" + "is sent to: "+ operator.getOperatorLastName());
@@ -81,19 +88,19 @@ public class CreateOrder {
     }
 
 
-   public void submitOrderToDB(String description, int operatorID, int customerID) throws SQLException {
+   public void submitOrderToDB(String description, int operatorID, int customerID,LocalDate date) throws SQLException {
 
         con = ConDB.getConnection();
         con.setAutoCommit(false);
 
         submitOrder = con.prepareStatement("INSERT INTO \"Task\"" +
-                "(\"Description\", \"OperatorID\", \"CustomerID\", \"Status\", \"Accepted\")" +
+                "(\"Description\", \"OperatorID\", \"CustomerID\", \"Status\", \"Startdate\")" +
                 "VALUES(?, ?, ?, ?, ?)");
         submitOrder.setString(1, description);
         submitOrder.setInt(2, operatorID);
         submitOrder.setInt(3, customerID);
-        submitOrder.setString(4, "PENDING");
-        submitOrder.setString(5, "N");
+        submitOrder.setString(4, "pending");
+        submitOrder.setDate(5, Date.valueOf(date));
         submitOrder.executeUpdate();
         con.commit();
         submitOrder.close();
