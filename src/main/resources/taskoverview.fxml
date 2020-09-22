@@ -3,19 +3,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="400.0"
-      prefWidth="600.0"
-      stylesheets="stylesheet.css"
-      xmlns="http://javafx.com/javafx/10.0.2-internal"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="TaskOverview">
+<VBox prefHeight="400.0" prefWidth="600.0" stylesheets="stylesheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TaskOverview">
 
       <TableView fx:id="TV" layoutX="24.0" layoutY="23.0" prefHeight="355.0" prefWidth="553.0">
         <columns>
-          <TableColumn fx:id="customerTab" prefWidth="116.19998550415039" text="Customer" />
-          <TableColumn fx:id="descriptionTab" prefWidth="234.1999969482422" text="Description" />
-            <TableColumn fx:id="operatorTab" prefWidth="105.0" text="Operator" />
-            <TableColumn fx:id="statusTab" prefWidth="104.79998779296875" text="Status" />
+          <TableColumn fx:id="customerTab" prefWidth="73.0" text="Customer" />
+          <TableColumn fx:id="descriptionTab" prefWidth="252.0" text="Description" />
+            <TableColumn fx:id="operatorTab" prefWidth="68.0" text="Operator" />
+            <TableColumn fx:id="statusTab" prefWidth="101.0" text="Status" />
+         <TableColumn fx:id="dateTab" prefWidth="93.5999755859375" text="Date" />
         </columns>
       </TableView>
 

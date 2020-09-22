@@ -115,6 +115,7 @@ public class MainMenu {
         task.setOperatorID(resultset.getInt("OperatorID"));
         task.setDescription(resultset.getString("Description"));
         task.setStatus(resultset.getString("Status"));
+        task.setStartDate(resultset.getDate("Startdate"));
 
         Task.tasks.add(task);
         System.out.println(task + "added to TaskList");
