@@ -7,7 +7,9 @@
 
     <VBox id="buttonAlignment">
         <Button id="placeOrderButton" onMouseClicked="#placeOrderClicked" text="Place Order" />
-      <Button mnemonicParsing="false" onMouseClicked="#taskButton" text="Task's" />
+        <VBox id="spacing">
+        </VBox>
+      <Button mnemonicParsing="false" onMouseClicked="#taskButton" text="Task" />
         <VBox id="spacing">
         </VBox>
         <Button id="registerEmployeeButton" onMouseClicked="#registerEmployeeClicked" text="Register Operator" />

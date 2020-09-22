@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class MainMenu {
 
     Connection con;
-    PreparedStatement getCustomers, getOperator;
+    PreparedStatement getCustomers, getOperator, getTasks;
 
 
     public void placeOrderClicked (MouseEvent mouseEvent) throws IOException, SQLException {
@@ -65,7 +65,22 @@ public class MainMenu {
 
     }
 
-    public void taskButton (MouseEvent mouseEvent) throws IOException {
+    public void taskButton (MouseEvent mouseEvent) throws IOException, SQLException {
+
+        ResultSet rs = getDBTasks();
+        Task.tasks = new ArrayList<>();
+
+        if(rs.next()) {
+
+
+            while (rs.next()) {
+
+                populateTaskList(rs);
+
+            }
+
+        }
+
         System.out.println("Task overview");
         SceneSwitch.replaceScene(SceneSwitch.taskOverviewFXML, SceneSwitch. taskOverviewTitle, mouseEvent);
     }
@@ -93,6 +108,19 @@ public class MainMenu {
 
     }
 
+    public void populateTaskList(ResultSet resultset) throws SQLException{
+
+        Task task = new Task();
+        task.setCustomerID(resultset.getInt("CustomerID"));
+        task.setOperatorID(resultset.getInt("OperatorID"));
+        task.setDescription(resultset.getString("Description"));
+        task.setStatus(resultset.getString("Status"));
+
+        Task.tasks.add(task);
+        System.out.println(task + "added to TaskList");
+
+    }
+
 
     public ResultSet getCustomers() throws SQLException {
 
@@ -110,11 +138,21 @@ public class MainMenu {
         con = ConDB.getConnection();
         con.setAutoCommit(false);
 
-        //Merge-statement with available-table
         getOperator = con.prepareStatement("SELECT * From public.\"Operator\"");
         System.out.println("Available Operators received");
         return getOperator.executeQuery();
 
+
+    }
+
+    public ResultSet getDBTasks() throws SQLException {
+
+        con = ConDB.getConnection();
+        con.setAutoCommit(false);
+
+        getTasks = con.prepareStatement("SELECT * FROM public.\"Task\"");
+        System.out.println("Task received");
+        return getTasks.executeQuery();
 
     }
 
