@@ -3,7 +3,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-
 import java.io.IOException;
 import java.sql.*;
 
@@ -42,7 +41,7 @@ public class Login {
 
     }
 
-    //Closing program
+
     public void closeButtonClicked (){
 
         System.out.println("Exiting Program");
@@ -50,7 +49,6 @@ public class Login {
         Platform.exit();
     }
 
-    //Validates admin and password
     public ResultSet validateUser (String username, String pw) throws SQLException {
 
         con = ConDB.getConnection();

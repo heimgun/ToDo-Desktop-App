@@ -1,19 +1,14 @@
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class RegisterCustomer {
 
 
     @FXML
-    TextField customerName, customerAdress, customerEmail, customerPhone;
+    TextField customerName, customerAddress, customerEmail, customerPhone;
 
 
     private PreparedStatement createCustomer;
@@ -24,7 +19,7 @@ public class RegisterCustomer {
         con.setAutoCommit(false);
 
         String cName = customerName.getText();
-        String cAdress = customerAdress.getText();
+        String cAdress = customerAddress.getText();
         String cEmail = customerEmail.getText();
         String cPhone = customerPhone.getText();
 

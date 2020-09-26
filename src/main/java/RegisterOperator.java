@@ -1,20 +1,24 @@
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.*;
+
+
 public class RegisterOperator {
 
     @FXML
     TextField operatorName;
-  @FXML
-  TextField operatorLastName;
-  @FXML
-  TextField operatorPassword;
-  @FXML
-  TextField operatorUsername;
+
+    @FXML
+    TextField operatorLastName;
+
+    @FXML
+    TextField operatorPassword;
+
+    @FXML
+    TextField operatorUsername;
 
   private PreparedStatement createOperator;
     Connection con;

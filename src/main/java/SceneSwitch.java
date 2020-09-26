@@ -3,7 +3,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
