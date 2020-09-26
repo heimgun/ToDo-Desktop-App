@@ -6,6 +6,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 
 
@@ -30,6 +31,8 @@ public class TaskOverview {
 
     @FXML
     TableColumn<Task, String> statusTab;
+    @FXML
+    TableColumn<Task, Date> dateTab;
 
 
 
@@ -41,6 +44,7 @@ public class TaskOverview {
         operatorTab.setCellValueFactory(new PropertyValueFactory<Task, Integer>("operatorID"));
         descriptionTab.setCellValueFactory(new PropertyValueFactory<Task, String>("description"));
         statusTab.setCellValueFactory(new PropertyValueFactory<Task, String>("status"));
+        dateTab.setCellValueFactory(new PropertyValueFactory<Task, Date>("startDate"));
 
         TV.setItems(taskOL);
 
